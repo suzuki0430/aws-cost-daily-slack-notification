@@ -7,13 +7,13 @@
 CI をつくっていないのでローカルで Docker イメージのビルドとプッシュが必要です。
 
 ```bash
-docker buildx build --platform linux/amd64 -f Dockerfile -t 429663746063.dkr.ecr.ap-northeast-1.amazonaws.com/aws-cost-daily-slack-notification:latest .
+docker buildx build --platform linux/amd64 -f Dockerfile -t <account-id>.dkr.ecr.ap-northeast-1.amazonaws.com/aws-cost-daily-slack-notification:latest .
 ```
 
 ```bash
-aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 429663746063.dkr.ecr.ap-northeast-1.amazonaws.com
+aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin <account-id>.dkr.ecr.ap-northeast-1.amazonaws.com
 ```
 
 ```bash
-docker push 429663746063.dkr.ecr.ap-northeast-1.amazonaws.com/aws-cost-daily-slack-notification
+docker push <account-id>.dkr.ecr.ap-northeast-1.amazonaws.com/aws-cost-daily-slack-notification
 ```
